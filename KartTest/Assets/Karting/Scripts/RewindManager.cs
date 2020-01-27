@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RewindManager : MonoBehaviour
 {
-    const int maxRewindFrame = 180;
+    const int maxRewindFrame = 200;
     const int maxCoolTime = 300;
 
     public GameObject[] gameObject;
     public TransRecord[] transRecord;
 
     private bool isRecord = true;  // 1:cooling or cooled, 0:using 
-    public int rewindFrame = 0;
-    public int coolTime = 0;
+    private int rewindFrame = 0;
+    private int coolTime = 0;
+
+    public GameObject coolTimeText;
+    public GameObject coolTimeSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,7 @@ public class RewindManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         TransInfo temp = new TransInfo(new Vector3(), new Quaternion());
 
@@ -31,9 +35,16 @@ public class RewindManager : MonoBehaviour
             for (int i = 0; i < transRecord.Length; i++)
                 temp = transRecord[i].Move(isRecord, gameObject[i].transform.position, gameObject[i].transform.rotation);
 
-            if (Input.GetKey(KeyCode.F) && coolTime > maxCoolTime)
+            coolTimeSlider.GetComponent<Slider>().value = (float)coolTime / maxCoolTime;
+
+            coolTimeText.GetComponent<Text>().text = "COOLING";
+            if (coolTime > maxCoolTime)
             {
-                isRecord = false;
+                coolTimeText.GetComponent<Text>().text = "PRESS F";
+                coolTimeSlider.GetComponent<Slider>().value = 1;
+
+                if (Input.GetKeyDown(KeyCode.F))
+                    isRecord = false;
             }
 
             coolTime++;
@@ -49,21 +60,22 @@ public class RewindManager : MonoBehaviour
             }
 
             if (rewindFrame > maxRewindFrame)
-            {
                 isRecord = true;
-
-            }
 
             rewindFrame++;
             coolTime = 0;
+
+            coolTimeText.GetComponent<Text>().text = "REWIND";
+            coolTimeSlider.GetComponent<Slider>().value = (float)(maxRewindFrame - rewindFrame)/maxRewindFrame;
         }
+
     }
 }
 
 [System.Serializable]
 public class TransRecord
 {
-    const int maxFrame = 240;  //180+a
+    const int maxFrame = 250;  //180+a
 
     private TransInfo[] transInfos = new TransInfo[maxFrame];
 
@@ -98,20 +110,18 @@ public class TransRecord
     private TransInfo Rewind()  //stackでpop
     {
         TransInfo temp = transInfos[0];
-        Debug.Log(transInfos[0].position);
-
+        
         for (int i = 0; i < maxFrame - 1; i++)
         {
             transInfos[i].position = transInfos[i + 1].position;
             transInfos[i].rotation = transInfos[i + 1].rotation;
         }
-        transInfos[maxFrame-1].position = new Vector3();
-        transInfos[maxFrame-1].rotation = new Quaternion();
+        transInfos[maxFrame - 1].position = new Vector3();
+        transInfos[maxFrame - 1].rotation = new Quaternion();
 
         return temp;
     }
 }
-
 
 public class TransInfo
 {

@@ -81,6 +81,7 @@
     <Compile Include="Assets\Karting\Scripts\KartSystems\KartMovement\KartMovement.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\KartMovement\KartStats.cs" />
     <Compile Include="Assets\Karting\Scripts\RewindManager.cs" />
+    <Compile Include="Assets\Karting\Scripts\SlowMotion.cs" />
     <Compile Include="Assets\Karting\Scripts\Timeline\DirectorTrigger.cs" />
     <Compile Include="Assets\Karting\Scripts\Track\Checkpoint.cs" />
     <Compile Include="Assets\Karting\Scripts\Track\InstantKartRepositioner.cs" />
