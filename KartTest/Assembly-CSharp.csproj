@@ -60,6 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Karting\Scripts\CannonManager.cs" />
+    <Compile Include="Assets\Karting\Scripts\CannonSensor.cs" />
+    <Compile Include="Assets\Karting\Scripts\FastForward.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\Inputs\GamepadInput.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\Inputs\IInput.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\Inputs\KeyboardInput.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Assets\Karting\Scripts\KartSystems\KartMovement\IMovable.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\KartMovement\KartMovement.cs" />
     <Compile Include="Assets\Karting\Scripts\KartSystems\KartMovement\KartStats.cs" />
+    <Compile Include="Assets\Karting\Scripts\LapseManager.cs" />
     <Compile Include="Assets\Karting\Scripts\RewindManager.cs" />
     <Compile Include="Assets\Karting\Scripts\SlowMotion.cs" />
     <Compile Include="Assets\Karting\Scripts\Timeline\DirectorTrigger.cs" />
@@ -92,6 +96,8 @@
     <Compile Include="Assets\Karting\Scripts\Track\TimeDisplay.cs" />
     <Compile Include="Assets\Karting\Scripts\Track\TrackManager.cs" />
     <Compile Include="Assets\Karting\Scripts\Track\TrackRecord.cs" />
+    <Compile Include="Assets\Karting\Scripts\TrapManager.cs" />
+    <Compile Include="Assets\Karting\Scripts\TrapSensor.cs" />
     <Compile Include="Assets\Karting\Scripts\UI\MainUIController.cs" />
     <Compile Include="Assets\Karting\Scripts\UI\MetaGameController.cs" />
     <Compile Include="Assets\Karting\Scripts\Utilities\DictionaryExtensions.cs" />
@@ -106,6 +112,7 @@
     <Compile Include="Assets\Mod Assets\ModResources\Scripts\Kart\KartSpeedPad.cs" />
     <Compile Include="Assets\Mod Assets\ModResources\Scripts\Kart\SimpleTrigger.cs" />
     <Compile Include="Assets\Mod Assets\ModResources\Scripts\Platformer\EmitParticlesOnLand.cs" />
+    <None Include="Assets\Tower Defence\Shaders\Double Side.shader" />
     <None Include="Assets\Karting\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Karting\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Karting\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

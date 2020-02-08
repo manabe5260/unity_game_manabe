@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SlowMotion : MonoBehaviour
 {
     const int maxCoolTime = 200;
-    const int maxCount = 100;
+    const int maxCount = 150;
 
     private bool isSlow = false;
     private int coolTime = 0;
@@ -28,23 +28,24 @@ public class SlowMotion : MonoBehaviour
 
         if (coolTime > maxCoolTime)
         {
-            coolTimeText.GetComponent<Text>().text = "PRESS E";
+            coolTimeText.GetComponent<Text>().text = "PRESS T";
             coolTimeSlider.GetComponent<Slider>().value = 1;
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.T))
             {
                 if (Time.timeScale == 1.0f)
                 {
                     Time.timeScale = 0.3f;
+                    Time.fixedDeltaTime = 0.006f;
                     isSlow = true;
                 }
                 else
                 {
                     count = 0;
                     Time.timeScale = 1.0f;
+                    Time.fixedDeltaTime = 0.02f;
                     isSlow = false;
                 }
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
         }
 
@@ -62,9 +63,8 @@ public class SlowMotion : MonoBehaviour
         {
             count = 0;
             Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f;
             isSlow = false;
         }
-
-        Debug.Log(count);
     }
 }
