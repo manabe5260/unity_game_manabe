@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class RewindManager : MonoBehaviour
 {
     const int maxObject = 6;
-    const int maxRewindFrame = 200;
-    const int maxCoolTime = 300;
+    const int maxRewindFrame = 150;
+    const int maxCoolTime = 250;
 
     public GameObject[] gameObject = new GameObject[maxObject];
     public TransRecord[] transRecord = new TransRecord[maxObject];
@@ -41,10 +41,10 @@ public class RewindManager : MonoBehaviour
             coolTimeText.GetComponent<Text>().text = "COOLING";
             if (coolTime > maxCoolTime)
             {
-                coolTimeText.GetComponent<Text>().text = "PRESS R";
+                coolTimeText.GetComponent<Text>().text = "PRESS F";
                 coolTimeSlider.GetComponent<Slider>().value = 1;
 
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetKeyDown(KeyCode.F))
                     isRecord = false;
             }
 

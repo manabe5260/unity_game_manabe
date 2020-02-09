@@ -5,7 +5,6 @@ using UnityEngine;
 public class TrapManager : MonoBehaviour
 {
     public Vector3 smashPosition;
-    public Vector3 smashRotation;
 
     private void Update()
     {
@@ -17,7 +16,7 @@ public class TrapManager : MonoBehaviour
         {
             Debug.Log("isEnter");
             other.transform.Translate(smashPosition);
-            other.transform.Rotate(smashRotation);
+            other.GetComponent<SmashManager>().Smash();
         }
     }
 }

@@ -28,10 +28,10 @@ public class SlowMotion : MonoBehaviour
 
         if (coolTime > maxCoolTime)
         {
-            coolTimeText.GetComponent<Text>().text = "PRESS T";
+            coolTimeText.GetComponent<Text>().text = "PRESS E";
             coolTimeSlider.GetComponent<Slider>().value = 1;
 
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Time.timeScale == 1.0f)
                 {

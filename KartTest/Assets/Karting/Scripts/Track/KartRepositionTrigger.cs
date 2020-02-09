@@ -17,6 +17,9 @@ namespace KartGame.Track
         [Tooltip("A reference to the TrackManager script for this track.")]
         public TrackManager trackManager;
 
+        //追加
+        public GameObject player;
+
         IMovable m_Movable;
 
         void Awake ()
@@ -29,6 +32,10 @@ namespace KartGame.Track
             if (Input.GetButtonDown ("Reset"))
             {
                 trackManager.ReplaceMovable (m_Movable);
+            }
+            if (player.transform.position.y < -10)
+            {
+                trackManager.ReplaceMovable(m_Movable);
             }
         }
     }

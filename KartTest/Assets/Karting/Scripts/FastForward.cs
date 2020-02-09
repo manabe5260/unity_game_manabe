@@ -28,10 +28,10 @@ public class FastForward : MonoBehaviour
 
         if (coolTime > maxCoolTime)
         {
-            coolTimeText.GetComponent<Text>().text = "PRESS F";
+            coolTimeText.GetComponent<Text>().text = "PRESS Q";
             coolTimeSlider.GetComponent<Slider>().value = 1;
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (Time.timeScale == 1.0f)
                 {
